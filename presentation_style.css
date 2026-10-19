@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.25rem clamp(1.25rem, 6vw, 5rem);
+    background: #fff;
+    border-bottom: 1px solid #e8e2d8;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: #f8f5ef;
+    color: #28251f;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+.site-name {
+    color: #28251f;
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 1.15rem;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+nav a {
+    padding: 0.65rem 0.9rem;
+    border-radius: 999px;
+    color: #514b42;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus-visible,
+nav a[aria-current="page"] {
+    background: #e2e2e2;
+    color: #367a98;
+}
+
+h1 {
+    width: min(100% - 2.5rem, 900px);
+    max-width: none;
+    margin: 3rem auto 0;
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.2;
+    text-align: center;
+}
+
+body > h2 {
+    width: min(100% - 2.5rem, 900px);
+    margin: 1rem auto 0;
+    color: #625c53;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.liste_I {
+    width: min(100% - 2.5rem, 900px);
+    margin: 3rem auto;
+    padding-left: 2rem;
+    list-style-type: upper-roman;
+}
+
+.liste_abc {
+    list-style-type: lower-alpha;
+}
+
+.liste_chiffres {
+    list-style-type: decimal-leading-zero;
+}
+
+.bloc-texte {
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    padding: clamp(1.25rem, 4vw, 2rem);
+    background-color: #fff;
+    border: 1px solid #e8e2d8;
+    border-radius: 10px;
+    box-shadow: 0 1rem 3rem rgb(61 48 30 / 7%);
+}
+
+.bloc-texte p {
+    margin: 0;
+    color: #514b42;
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: left;
+}
+
+footer {
+    padding: 1.5rem;
+    color: black;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 30px
+}
+
+@media (max-width: 640px) {
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    ol {
+        padding-left: 1.5rem;
+    }
+}
