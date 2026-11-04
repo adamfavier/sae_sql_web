@@ -22,9 +22,10 @@
         </p>
     </div>
     <div class="item2">
-        <img src="presentation/requete_1.png" alt="Résultat de la requête A"/>
+        <img src="assets/images/Requete_1A.png" alt="Résultat de la requête A"/>
     </div>
 </div>
+
 <div class="wrapper">
     <div class="item1">
         <p>
@@ -36,9 +37,180 @@
         </p>
     </div>
     <div class="item2">
-        <img src="presentation/requete_2.png" alt="Résultat de la requête B">
+        <img src="assets/images/Requete_1B.png" alt="Résultat de la requête B">
     </div>
 </div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête C<br>
+            SELECT F.Societe, Pa.PaysFR, P.NomProd<br>
+            FROM (((PAYS as Pa INNER JOIN FOURNISSEUR as F ON Pa.NoPays = F.NoPays)<br>
+            INNER JOIN PRODUIT AS P ON F.NoFour = P.NoFour)<br>
+            INNER JOIN CATEGORIE AS C ON P.CodeCateg = C.CodeCateg)<br>
+            WHERE C.NomCateg LIKE "*Viandes*" OR C.NomCateg LIKE "*Poissons*" AND P.CoutAchat > 50<br>
+            ORDER BY F.Societe, Pa.PaysFR, P.NomProd ASC;<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/Requete_1C.png" alt="Résultat de la requête C">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête D<br>
+            SELECT DISTINCT F.Societe, Ca.NomCateg<br>
+            FROM ((CATEGORIE AS Ca INNER JOIN PRODUIT AS P ON Ca.CodeCateg = P.CodeCateg)<br>
+            INNER JOIN FOURNISSEUR AS F ON P.NoFour = F.NoFour)<br>
+            WHERE Ca.NomCateg LIKE "*Viande*" OR Ca.NomCateg LIKE "*Poissons*"<br>
+            ORDER BY Ca.NomCateg;<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/Requete_1D.png" alt="Résultat de la requête D">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête E<br>
+            SELECT F.Societe<br>
+            FROM ((CATEGORIE AS Ca INNER JOIN PRODUIT AS P ON Ca.CodeCateg = P.CodeCateg)<br>
+            INNER JOIN FOURNISSEUR AS F ON P.NoFour = F.NoFour)<br>
+            WHERE Ca.NomCateg LIKE "*Viandes*" AND Ca.NomCateg LIKE "*Poissons*"<br>
+            ORDER BY F.Societe;<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/requete_1E.png" alt="Résultat de la requête E">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête F<br>
+            SELECT P.NomProd<br>
+            FROM Produit AS P<br>
+            WHERE P.UnitStock IN ("carton", "bouteilles")<br>
+            ORDER BY P.NomProd;<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/Requete_1F.png" alt="Résultat de la requête F">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête G<br>
+            SELECT TOP 3 Cl.Contact, Produit.NomProd<br>
+            FROM Produit INNER JOIN ((CLIENTELE AS Cl INNER JOIN Commande ON Cl.CodeCli = Commande.CodeCli)<br>
+            INNER JOIN DetailCommande ON Commande.[N° commande] = DetailCommande.[N° commande])<br>
+            ON Produit.RefProd = DetailCommande.[Réf produit]<br>
+            WHERE (((Cl.Contact)="Max Deschamps"));<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/Requette_1G.png" alt="Résultat de la requête G">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête H<br>
+            SELECT DISTINCT F.Societe, P.NomProd<br>
+            FROM ((FOURNISSEUR AS F INNER JOIN PRODUIT AS P ON F.NoFour = P.NoFour)<br>
+            INNER JOIN CATEGORIE AS C ON P.CodeCateg = C.CodeCateg)<br>
+            WHERE C.NomCateg = "Desserts";<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/Requete_1H.png" alt="Résultat de la requête H">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête I<br>
+            SELECT Fournisseur.NoFour, Fournisseur.Societe, Produit.NomProd, Pays.PaysFR<br>
+            FROM Pays INNER JOIN (Fournisseur INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour) ON Pays.NoPays = Fournisseur.NoPays<br>
+            WHERE (((Pays.[PaysFR]) Not In ('France')) AND ((Produit.NoFour) Is Null));<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/requete_1I.png" alt="Résultat de la requête I">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête J<br>
+            SELECT Clientele.CodeCli<br>
+            FROM Clientele INNER JOIN Clientele AS Clientele_1 ON Clientele.CodeCli = Clientele_1.Ville<br>
+            WHERE ((Clientele_1.Ville)="Paris") AND (Clientele.CodeCli = Clientele_1.CodeCliPart)<br>
+            ORDER BY Clientele.CodeCli;<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/requete_1J.png" alt="Résultat de la requête J">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête 2<br>
+            SELECT SUM(P.CoutAchat * DC.Quantité * (1 - DC.[Remise (%)])) AS chiffre_affaires<br>
+            FROM (((PAYS as Pa INNER JOIN FOURNISSEUR AS F ON Pa.NoPays = F.NoPays)<br>
+            INNER JOIN PRODUIT AS P ON F.NoFour = P.NoFour)<br>
+            INNER JOIN DETAILCOMMANDE AS DC ON P.RefProd = DC.[Réf produit])<br>
+            WHERE UE = "Membre";<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/requete_2.png" alt="Résultat de la requête 2">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête 3<br>
+            SELECT SUM(P.CoutAchat * DC.Quantité * (1 - DC.[Remise (%)])) AS chiffre_affaires<br>
+            FROM (((Commande as C INNER JOIN DetailCommande AS DC ON C.[N° commande] = DC.[N° commande])<br>
+            INNER JOIN Produit as P ON DC.[Réf produit] = P.RefProd)<br>
+            INNER JOIN Categorie AS Ca ON P.CodeCateg = Ca.CodeCateg)<br>
+            WHERE Ca.NomCateg LIKE "*Boissons*" OR Ca.NomCateg LIKE "*Desserts*" AND C.DateCde BETWEEN #31/12/2021# AND #01/01/2023#;<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/Requete_3.png" alt="Résultat de la requête 3">
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="item1">
+        <p>
+            Requête 4<br>
+            SELECT SUM(P.UnitStock) AS nombre_de_produits<br>
+            FROM Categorie as C INNER JOIN Produit as P ON C.CodeCateg = P.CodeCateg<br>
+            WHERE C.NomCateg LIKE "*Viandes*" AND P.UnitStock > 0;<br>
+        </p>
+    </div>
+    <div class="item2">
+        <img src="assets/images/Requete_4.png" alt="Résultat de la requête 4">
+    </div>
+</div>
+
 <ol>
 </ol>
 </body>
